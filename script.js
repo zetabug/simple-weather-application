@@ -20,7 +20,7 @@ function requestApi(position) {
   (async () => {
     // first
     const res = await fetch(
-      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+      `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=fr&apiKey=42e7b8d0e98d421e933d9c5d78ad25dc`
     );
     const result1 = await res.json();
 
@@ -36,7 +36,9 @@ function requestApi(position) {
 }
 
 function displayLocation(info) {
-  const city = info.city;
+  const city = info.features[0].properties.city;
+
+  display.innerHTML = ``;
   
   display.innerHTML = `<h3 class="location_container">${city}</h3>`;
 }
