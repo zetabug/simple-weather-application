@@ -5,6 +5,7 @@ locationBtn.addEventListener("click", function getLocation() {
   display.innerHTML = `<h3>Loading...</h3>`;
 
   if (navigator.geolocation) {
+    display.innerHTML = ``;
     navigator.geolocation.getCurrentPosition(requestApi);
   } else {
     alert("Geolocation is not supported by this browser.");
@@ -36,9 +37,9 @@ function requestApi(position) {
 
 function displayLocation(info) {
   const city = info.city;
-  const state = info.principalSubdivision;
+  
 
-  display.innerHTML = `<h3 class="location_container">${city}, ${state}</h3>`;
+  display.innerHTML = `<h3 class="location_container">${city}</h3>`;
 }
 
 function displayAll(data) {
