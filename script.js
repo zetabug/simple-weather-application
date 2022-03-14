@@ -37,7 +37,7 @@ function requestApi(position) {
 
 function displayLocation(info) {
   const city = info.city;
-  display.innerHTML = ``;
+  
   display.innerHTML = `<h3 class="location_container">${city}</h3>`;
 }
 
