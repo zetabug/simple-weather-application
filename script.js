@@ -20,7 +20,7 @@ function requestApi(position) {
   (async () => {
     // first
     const res = await fetch(
-      `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&lang=fr&apiKey=42e7b8d0e98d421e933d9c5d78ad25dc`
+      `https://apis.mapmyindia.com/advancedmaps/v1/752e7f201e4ce48953d003df1b5f2ec3/rev_geocode?lat=${latitude}&lng=${longitude}`
     );
     const result1 = await res.json();
 
@@ -36,11 +36,11 @@ function requestApi(position) {
 }
 
 function displayLocation(info) {
-  const city = info.features[0].properties.city;
+  const district = info.results[0].district;
+  const state = info.results[0].state;
 
   display.innerHTML = ``;
-  
-  display.innerHTML = `<h3 class="location_container">${city}</h3>`;
+  display.innerHTML = `<h3 class="location_container">${district},${state}</h3>`;
 }
 
 function displayAll(data) {
