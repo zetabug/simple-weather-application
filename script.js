@@ -36,11 +36,16 @@ function requestApi(position) {
 }
 
 function displayLocation(info) {
+  const city = info.results[0].city;
   const district = info.results[0].district;
   const state = info.results[0].state;
 
   display.innerHTML = ``;
-  display.innerHTML = `<h3 class="location_container">${district},${state}</h3>`;
+  if (city !== "") {
+    display.innerHTML = `<h3 class="location_container">${city}, ${state}</h3>`;
+  } else {
+    display.innerHTML = `<h3 class="location_container">${district}, ${state}</h3>`;
+  }
 }
 
 function displayAll(data) {
